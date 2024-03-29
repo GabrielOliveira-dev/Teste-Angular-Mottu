@@ -1,0 +1,54 @@
+.header__container {
+    display: flex;
+    border-bottom: 1px solid #3D3D3D;
+    padding: 8px 24px;
+    justify-content: space-between;
+    background-color: #0A0A0A;
+    align-items: center;
+    
+}
+
+.button__container {
+    width: 253px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.mat-button-toggle-group {
+    border-radius: 12px;
+    border: 1px solid #3D3D3D;
+}
+
+.mat-button-toggle-group .router-link-active {
+    color: #0A0A0A;
+    background-color: #FFF;
+}
+
+.mat-button-toggle {
+    color: #3D3D3D;
+    background-color: #0A0A0A;
+}
+
+.button-favorites #count-favorites {
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    color: #0A0A0A;
+    border-radius: 50%;
+    border: 2px solid #0A0A0A;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
