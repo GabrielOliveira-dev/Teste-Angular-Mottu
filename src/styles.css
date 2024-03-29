@@ -63,6 +63,12 @@ body { margin: 0; font-family: "Poppins", sans-serif; font-weight: 600; backgrou
 }
 
 
+/* Change the border-radius */
+.mdc-text-field--outlined {
+	--mdc-outlined-text-field-container-shape: 12px !important;
+  }
+
+
 /* Change the border width */
 .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline .mdc-notched-outline__leading,
 .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline .mdc-notched-outline__notch,
@@ -77,5 +83,13 @@ body { margin: 0; font-family: "Poppins", sans-serif; font-weight: 600; backgrou
 .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
   border-color: #3D3D3D !important;
 }
+
+.input-field mat-label{
+	color:#3D3D3D !important;
+  }
+
+.input-field.mat-focused mat-label{
+	color:#3D3D3D !important;
+  }
 
 

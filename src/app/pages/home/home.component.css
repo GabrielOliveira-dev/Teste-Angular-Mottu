@@ -1,8 +1,33 @@
+.home__container {
+
+
+    margin: auto auto;
+    width: 720px;
+    height: 608px;
+    padding-top: 2.5%;
+}
+
+.title-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-title {
+    font-size: 48px;
+    font-family: "Creepster";
+    font-weight: 400px;
+    line-height: 48px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #B2DF28;
+    color: #00B5CC;
+}
 
 .input-field {
-    width: 480px;
+    width: 328px;
     height: 49px;
     border-radius: 8px;
 } 
+
 
 
