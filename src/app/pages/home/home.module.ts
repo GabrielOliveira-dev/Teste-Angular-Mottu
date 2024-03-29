@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { APIService } from 'src/app/core/services/apiservice.service';
 
 
 
@@ -18,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
     HomeRoutingModule,
     MatFormFieldModule,
     MatInputModule
-  ]
+  ],
+  providers: [ APIService ]
+  
 })
 export class HomeModule { }
