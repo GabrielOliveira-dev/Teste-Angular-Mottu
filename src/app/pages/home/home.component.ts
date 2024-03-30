@@ -1,6 +1,5 @@
-import { OnInit, Component, inject } from '@angular/core';
-import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
-import { ICharacters } from 'src/app/core/models/ICharacters';
+import {  Component } from '@angular/core';
+import { Subject, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 import { APIService } from 'src/app/core/services/apiservice.service';
 
 @Component({
@@ -26,7 +25,9 @@ export class HomeComponent {
 
     this.searchTerms.pipe(
       debounceTime(300),
-    ).subscribe((term: string) => {
+      switchMap((data) => this.apiService.searchCharacter(data)),
+      tap((data: any) => this.characters = data.results)
+    ).subscribe((term: any) => {
       this.searchCharacters(term);
     })
   }
