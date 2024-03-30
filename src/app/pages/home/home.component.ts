@@ -1,5 +1,5 @@
 import { OnInit, Component, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { ICharacters } from 'src/app/core/models/ICharacters';
 import { APIService } from 'src/app/core/services/apiservice.service';
 
@@ -11,23 +11,54 @@ import { APIService } from 'src/app/core/services/apiservice.service';
 })
 export class HomeComponent {
 
-/*   api: Observable<ICharacters[]>;
- */
+  characters: any[] = [];
+  charactersBackup: any[] = [];
+  private searchTerms = new Subject<string>();
 
-characters: any[] = [];
+
+  
 
   constructor(private apiService: APIService) {}
 
   ngOnInit(): void {
     this.loadCharacters();
+
+
+    this.searchTerms.pipe(
+      debounceTime(300),
+    ).subscribe((term: string) => {
+      this.searchCharacters(term);
+    })
   }
 
   loadCharacters() {
     this.apiService.getCharacters().subscribe((data: any) => {
       this.characters = data.results
-      console.log(this.characters)
+      this.charactersBackup = this.characters
     })
   }
+
+  searchChanged(term: string) {
+    this.searchTerms.next(term);
+  }
+
+  searchCharacters(term: string){
+    if(!term.trim()) {
+      this.characters = this.charactersBackup;
+    }
+
+    this.characters = this.characters.filter(character =>
+      character.name.toLowerCase().includes(term.toLowerCase())
+    );
+  }
+
+  addFavorite(term: number) {
+    console.log("Button Pressed", term)
+  }
+
+
+
+
 
 
 

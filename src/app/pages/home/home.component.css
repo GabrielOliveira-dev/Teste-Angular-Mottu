@@ -1,10 +1,8 @@
 .home__container {
-
-
     margin: auto auto;
     width: 720px;
     height: 608px;
-    padding-top: 2.5%;
+    padding-top: 3.5%;
 }
 
 .title-input {
@@ -28,6 +26,64 @@
     height: 49px;
     border-radius: 8px;
 } 
+
+.character__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding-top: 48px;
+}
+
+.character-card {
+    background-color: #0A0A0A;
+    border: 1px #3d3d3d;
+    border-radius: 12px;
+    width: 224px;
+    height: 298px;
+    
+}
+
+.character-img {
+    width: 224px;
+    height: 224px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.character-button {
+    color: #FFFFFF;
+    border-radius: 12px;
+    background-color: black;
+    border: none;
+    
+}
+
+
+
+.character-name {
+    font-family: Creepster;
+    font-size: 24px;
+    color: #FAFAFA;
+    width: 200px;
+    height: 24px;
+    margin: auto auto;
+}
+
+.character-species {
+    font-size: 16px;
+    color: #A4A4A4;
+    width: 200px;
+    height: 20px;
+    margin: auto auto;
+}
+
+.character-type {
+    font-size: 16px;
+    color: #A4A4A4;
+    width: 200px;
+    height: 20px;
+    margin: auto auto;
+}
 
 
 

@@ -16,4 +16,8 @@ export class APIService {
     return this.httpClient.get<ICharacters[]>(this.API);
 
   }
+
+  searchCharacter(term: string): Observable<ICharacters[]> {
+    return this.httpClient.get<ICharacters[]>(`${this.API}/?name=${term}`)
+  }
 }
