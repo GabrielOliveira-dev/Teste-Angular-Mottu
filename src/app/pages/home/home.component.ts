@@ -14,15 +14,19 @@ export class HomeComponent {
 /*   api: Observable<ICharacters[]>;
  */
 
-characters$!: [];
+characters: any[] = [];
 
-  constructor(private apiService: APIService) {
-    this.apiService.getCharacters().subscribe((res: any) => this.characters$ = res);
-    
-  }
+  constructor(private apiService: APIService) {}
 
   ngOnInit(): void {
+    this.loadCharacters();
+  }
 
+  loadCharacters() {
+    this.apiService.getCharacters().subscribe((data: any) => {
+      this.characters = data.results
+      console.log(this.characters)
+    })
   }
 
 
