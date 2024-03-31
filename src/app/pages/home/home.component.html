@@ -5,7 +5,7 @@
         <p>
             <mat-form-field appearance="outline" class="input-field">
               <mat-label>Pesquisar</mat-label>
-              <input (input)="searchChanged($any($event.target).value)" matInput >
+              <input class="search-input"(input)="searchChanged($any($event.target).value)" matInput >
             </mat-form-field>
         </p>
     </div>

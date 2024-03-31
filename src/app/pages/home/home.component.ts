@@ -1,5 +1,5 @@
 import {  Component } from '@angular/core';
-import { Subject, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { Subject, catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 import { APIService } from 'src/app/core/services/apiservice.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class HomeComponent {
     this.searchTerms.pipe(
       debounceTime(300),
       switchMap((data) => this.apiService.searchCharacter(data)),
+      
       tap((data: any) => this.characters = data.results)
     ).subscribe((term: any) => {
       this.searchCharacters(term);

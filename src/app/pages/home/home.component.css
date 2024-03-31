@@ -24,8 +24,13 @@
 .input-field {
     width: 328px;
     height: 49px;
-    border-radius: 8px;
+
 } 
+
+.search-input {
+    color: #FFF !important;
+}
+
 
 .character__container {
     display: grid;

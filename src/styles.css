@@ -84,13 +84,14 @@ body { margin: 0; font-family: "Poppins", sans-serif; font-weight: 600; backgrou
   border-color: #3D3D3D !important;
 }
 
+
 .input-field mat-label{
 	color:#3D3D3D !important;
-  }
+}
 
 .input-field.mat-focused mat-label{
 	color:#3D3D3D !important;
-  }
+}
 
 
 
