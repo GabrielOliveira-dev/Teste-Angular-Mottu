@@ -1,0 +1,91 @@
+.favorite__container {
+    margin: auto auto;
+    width: 720px;
+    height: 608px;
+    padding-top: 3.5%;
+}
+
+.title-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favorite-title {
+    font-size: 48px;
+    font-family: "Creepster";
+    font-weight: 400px;
+    line-height: 48px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #B2DF28;
+    color: #00B5CC;
+}
+
+.character__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding-top: 48px;
+}
+
+.character-card {
+    background-color: #0A0A0A;
+    border: 1px #3d3d3d;
+    border-radius: 12px;
+    width: 224px;
+    height: auto;
+    position: relative;
+}
+
+.character-img {
+    width: 224px;
+    height: 224px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.button-area {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.character-button {
+    color: #0A0A0A;
+    border-radius: 12px;
+    background-color: transparent;
+    border: none;
+    
+}
+
+
+.character-name {
+    font-family: Creepster;
+    font-size: 24px;
+    color: #FAFAFA;
+    width: 200px;
+    height: 24px;
+    margin: auto auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.character-species {
+    font-size: 16px;
+    color: #A4A4A4;
+    width: 200px;
+    height: 20px;
+    padding: 5px 0px 0px 15px;
+    display: inline-block;
+}
+
+.character-type {
+    font-size: 16px;
+    color: #A4A4A4;
+    width: 200px;
+    height: 20px;
+    padding: 2px 0px 20px 15px;
+    display: inline-block;
+}

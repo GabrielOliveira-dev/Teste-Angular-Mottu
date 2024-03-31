@@ -1,1 +1,27 @@
-<p>favorites works!</p>
+<div class="favorite__container">
+    <div class="title-input">
+        <h1 class="favorite-title">FAVORITOS</h1>
+
+    </div>
+
+    <div class="character__container" *ngIf="(favorites$ | async) as results">
+        <div class="character-card" *ngFor="let item of results.products">
+            <img class="character-img" src={{item.image}} >
+            <div class="button-area">
+                <button mat-icon-button class="character-button" (click)="removeFavorite(item)">
+                    <mat-icon >favorite_border</mat-icon>
+                </button>
+            </div>
+            <p class="character-name">{{item.name}}</p>
+            <p class="character-species">{{item.species}}</p>
+            <p class="character-type">{{item.type}}</p>
+        </div>
+    </div>
+    
+    
+</div>
+
+
+
+
+

@@ -44,8 +44,9 @@
     border: 1px #3d3d3d;
     border-radius: 12px;
     width: 224px;
-    height: 298px;
-    
+    height: auto;
+    position: relative;
+
 }
 
 .character-img {
@@ -55,10 +56,16 @@
     border-top-right-radius: 12px;
 }
 
+.button-area {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
 .character-button {
-    color: #FFFFFF;
+    color: #0A0A0A;
     border-radius: 12px;
-    background-color: black;
+    background-color: transparent;
     border: none;
     
 }
@@ -72,6 +79,9 @@
     width: 200px;
     height: 24px;
     margin: auto auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .character-species {
@@ -79,7 +89,8 @@
     color: #A4A4A4;
     width: 200px;
     height: 20px;
-    margin: auto auto;
+    padding: 5px 0px 0px 15px;
+    display: inline-block;
 }
 
 .character-type {
@@ -87,7 +98,8 @@
     color: #A4A4A4;
     width: 200px;
     height: 20px;
-    margin: auto auto;
+    padding: 2px 0px 20px 15px;
+    display: inline-block;
 }
 
 

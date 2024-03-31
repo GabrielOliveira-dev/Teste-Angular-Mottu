@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 import { APIService } from 'src/app/core/services/apiservice.service';
+import { StoreModule } from '@ngrx/store';
+import { favoriteReducer } from 'src/app/pages/store/favorites.reducer';
 
 
 
@@ -22,7 +24,9 @@ import { APIService } from 'src/app/core/services/apiservice.service';
     HomeRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule  ],
+    MatIconModule,
+    StoreModule.forFeature('favorite', favoriteReducer)
+  ],
   providers: [ APIService ]
   
 })

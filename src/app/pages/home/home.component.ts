@@ -1,6 +1,10 @@
 import {  Component } from '@angular/core';
-import { Subject, catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 import { APIService } from 'src/app/core/services/apiservice.service';
+import { Store } from '@ngrx/store';
+import { IFavorites } from 'src/app/core/models/IFavorites';
+import { add } from '../store/favorites.actions';
+
 
 @Component({
   selector: 'app-home',
@@ -11,13 +15,15 @@ import { APIService } from 'src/app/core/services/apiservice.service';
 export class HomeComponent {
 
   characters: any[] = [];
-  charactersBackup: any[] = [];
   private searchTerms = new Subject<string>();
 
 
   
 
-  constructor(private apiService: APIService) {}
+  constructor(
+    private apiService: APIService,
+    private store: Store<IFavorites[]>,
+    ) {}
 
   ngOnInit(): void {
     this.loadCharacters();
@@ -26,17 +32,17 @@ export class HomeComponent {
     this.searchTerms.pipe(
       debounceTime(300),
       switchMap((data) => this.apiService.searchCharacter(data)),
-      
+      catchError((err, caught) => {
+        return typeof({})
+      }),
       tap((data: any) => this.characters = data.results)
-    ).subscribe((term: any) => {
-      this.searchCharacters(term);
-    })
+    ).subscribe()
   }
 
   loadCharacters() {
     this.apiService.getCharacters().subscribe((data: any) => {
       this.characters = data.results
-      this.charactersBackup = this.characters
+
     })
   }
 
@@ -44,29 +50,25 @@ export class HomeComponent {
     this.searchTerms.next(term);
   }
 
-  searchCharacters(term: string){
-    if(!term.trim()) {
-      this.characters = this.charactersBackup;
+
+  addFavorite(product: IFavorites) {
+    const favoriteProduct:IFavorites = {
+      ...product,
+      isFavorite: true
     }
-
-    this.characters = this.characters.filter(character =>
-      character.name.toLowerCase().includes(term.toLowerCase())
-    );
-  }
-
-  addFavorite(term: number) {
-    console.log("Button Pressed", term)
-  }
-
-
-
-
-
-
-
-
-
-
-
-
+    this.store.dispatch(add({product}));
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

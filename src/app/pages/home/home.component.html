@@ -13,12 +13,15 @@
     <div class="character__container">
         <div class="character-card" *ngFor="let character of characters">
             <img class="character-img" src={{character.image}} >
-            <button mat-icon-button class="character-button" (click)="addFavorite(character)">
-                <mat-icon >favorite_border</mat-icon>
-            </button>
+            <div class="button-area">
+                <button mat-icon-button class="character-button" (click)="addFavorite(character)">
+                    <mat-icon >favorite_border</mat-icon>
+                </button>
+            </div>
+
             <p class="character-name">{{character.name}}</p>
             <p class="character-species">{{character.species}}</p>
-            <p class="character-type">{{character.type}}</p>
+            <p *ngIf='character.type' class="character-type">{{character.type}}</p>
         </div>
     </div>
     
