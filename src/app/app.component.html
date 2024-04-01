@@ -15,7 +15,7 @@
         </mat-button-toggle>
         <mat-button-toggle class="button-favorites" [routerLink]="['/favorites']" routerLinkActive="router-link-active">
           <mat-icon aria-hidden="false" aria-label="Example favorite icon" fontIcon="favorite"></mat-icon>
-            Favoritos <span id="count-favorites">0</span>
+            Favoritos <label class="count-favorites" *ngIf="(countFavorites$ | async) as result"> {{ result.contador  }}</label>
         </mat-button-toggle>
       </mat-button-toggle-group>
 

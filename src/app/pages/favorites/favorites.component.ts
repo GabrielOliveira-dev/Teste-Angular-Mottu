@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IFavorites } from 'src/app/core/models/IFavorites';
-import { remove } from '../store/favorites.actions';
+import { decrement, remove } from '../store/favorites.actions';
 
 @Component({
   selector: 'app-favorites',
@@ -23,6 +23,10 @@ export class FavoritesComponent implements OnInit {
 
   removeFavorite(product: IFavorites) {
     this.store.dispatch(remove({product}));
+    this.decrement()
   }
 
+decrement() {
+  this.store.dispatch(decrement());
+}
 }

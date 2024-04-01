@@ -102,5 +102,33 @@
     display: inline-block;
 }
 
+.error-container {
+    width: 720px;
+    height: 460px;
+    margin-top: 48px;
+    background-color: #0A0A0A;
+    border: 1px solid #3d3d3d;
+    border-radius: 12px;
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.error-content {
+    margin: auto auto;
+}
+
+.error-title {
+    font-weight: 700;
+    color: #FAFAFA;
+    font-size: 28px;
+}
+
+.error-subtitle {
+    font-weight: 400;
+    color: #A4A4A4;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
 
 

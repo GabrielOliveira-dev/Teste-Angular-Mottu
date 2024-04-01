@@ -1,9 +1,9 @@
 import {  Component } from '@angular/core';
-import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, empty, of, switchMap, tap } from 'rxjs';
 import { APIService } from 'src/app/core/services/apiservice.service';
 import { Store } from '@ngrx/store';
 import { IFavorites } from 'src/app/core/models/IFavorites';
-import { add } from '../store/favorites.actions';
+import { add, decrement, increment } from '../store/favorites.actions';
 
 
 @Component({
@@ -32,8 +32,9 @@ export class HomeComponent {
     this.searchTerms.pipe(
       debounceTime(300),
       switchMap((data) => this.apiService.searchCharacter(data)),
-      catchError((err, caught) => {
-        return typeof({})
+      catchError(error => {
+        console.log(error)
+        return of([])
       }),
       tap((data: any) => this.characters = data.results)
     ).subscribe()
@@ -57,7 +58,18 @@ export class HomeComponent {
       isFavorite: true
     }
     this.store.dispatch(add({product}));
+    this.increment()
   }
+
+increment() {
+  this.store.dispatch(increment());
+}
+
+
+decrement() {
+  this.store.dispatch(decrement());
+}
+
 }
 
 

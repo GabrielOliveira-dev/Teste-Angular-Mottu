@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
     )  {}
   
     ngOnInit() {
-      this.countFavorites$ = this.store.select('favorite');
+      this.countFavorites$ = this.store.select('contador');
     }
   
 }

@@ -16,7 +16,7 @@
 }
 
 .mat-button-toggle-group {
-    border-radius: 12px;
+    border-radius: 17px;
     border: 1px solid #3D3D3D;
 }
 
@@ -30,13 +30,14 @@
     background-color: #0A0A0A;
 }
 
-.button-favorites #count-favorites {
+.button-favorites .count-favorites {
     width: 20px;
     height: 20px;
+    padding: 0 4px 0 4px;
     background-color: #FFF;
     color: #0A0A0A;
     border-radius: 50%;
-    border: 2px solid #0A0A0A;
+    border: 2px solid #3D3D3D;
 }
 
 

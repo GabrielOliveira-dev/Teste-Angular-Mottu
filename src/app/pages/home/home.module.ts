@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { APIService } from 'src/app/core/services/apiservice.service';
 import { StoreModule } from '@ngrx/store';
-import { favoriteReducer } from 'src/app/pages/store/favorites.reducer';
+import { _counterReducer, favoriteReducer } from 'src/app/pages/store/favorites.reducer';
 
 
 
@@ -25,7 +25,8 @@ import { favoriteReducer } from 'src/app/pages/store/favorites.reducer';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    StoreModule.forFeature('favorite', favoriteReducer)
+    StoreModule.forFeature('favorite', favoriteReducer),
+    StoreModule.forFeature('contador', _counterReducer)
   ],
   providers: [ APIService ]
   

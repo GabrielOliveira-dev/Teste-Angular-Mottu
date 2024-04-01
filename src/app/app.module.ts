@@ -9,8 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { favoriteReducer } from './pages/store/favorites.reducer';
-import { environment } from 'src/environments/environment.prod';
+import { counterReducer } from './pages/store/favorites.reducer';
 
 
 
@@ -25,7 +24,7 @@ import { environment } from 'src/environments/environment.prod';
     MatButtonToggleModule,
     MatIconModule,
     HttpClientModule,
-    StoreModule.forRoot({favorite:favoriteReducer}),
+    StoreModule.forRoot({contador:counterReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }) 
