@@ -23,10 +23,7 @@ export class FavoritesComponent implements OnInit {
 
   removeFavorite(product: IFavorites) {
     this.store.dispatch(remove({product}));
-    this.decrement()
+    this.store.dispatch(decrement())
   }
 
-decrement() {
-  this.store.dispatch(decrement());
-}
 }

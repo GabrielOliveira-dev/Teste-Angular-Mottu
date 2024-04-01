@@ -2,12 +2,12 @@
     <div class="title-input">
         <h1 class="home-title">INÍCIO</h1>
 
-        <p>
+        <div>
             <mat-form-field appearance="outline" class="input-field">
-              <mat-label>Pesquisar</mat-label>
-              <input class="search-input"(input)="searchChanged($any($event.target).value)" matInput >
+                <mat-label>Pesquisar</mat-label>
+                <input matInput class="search-input"(input)="searchChanged($any($event.target).value)"  >
             </mat-form-field>
-        </p>
+        </div>
     </div>
 
     <div class="character__container" *ngIf="characters; else error">

@@ -1,7 +1,7 @@
 import { ICharacters } from 'src/app/core/models/ICharacters';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, filter, map, switchMap, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,9 @@ export class APIService {
   constructor(private httpClient: HttpClient) { }
 
   getCharacters(): Observable<ICharacters[]> {
-    return this.httpClient.get<ICharacters[]>(this.API);
+    return this.httpClient.get<{ results: ICharacters[] }>(this.API).pipe(
+      map(response => response.results)
+    )
   }
 
   searchCharacter(term: string): Observable<ICharacters[]> {

@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { APIService } from 'src/app/core/services/apiservice.service';
 import { StoreModule } from '@ngrx/store';
 import { _counterReducer, favoriteReducer } from 'src/app/pages/store/favorites.reducer';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -23,6 +24,7 @@ import { _counterReducer, favoriteReducer } from 'src/app/pages/store/favorites.
     CommonModule,
     HomeRoutingModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
     StoreModule.forFeature('favorite', favoriteReducer),

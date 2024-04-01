@@ -1,29 +1,49 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle'; // Importe o MatButtonToggleModule
+import { MatIconModule } from '@angular/material/icon';
+import { RouterTestingModule } from '@angular/router/testing'; // Importe o RouterTestingModule
+
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let store: Store<any>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ AppComponent ],
+      imports: [
+        StoreModule.forRoot({}),
+        MatButtonToggleModule, // Adicione o MatButtonToggleModule aqui
+        MatIconModule,
+        RouterTestingModule 
+      ],
+      providers: [Store]
+    })
+    .compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    store = TestBed.inject(Store);
+  });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'teste-angular-mottu'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('teste-angular-mottu');
-  });
+  it('should initialize countFavorites$ with store select', () => {
+    // Configurando o espião para retornar um observable
+    spyOn(store, 'select').and.returnValue(of(5));
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    // Inicializando o componente
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('teste-angular-mottu app is running!');
+
+    // Verificando se countFavorites$ foi inicializado corretamente com um observable
+    expect(component.countFavorites$).toBeInstanceOf(Observable);
   });
 });
